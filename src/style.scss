@@ -1,0 +1,250 @@
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@font-face {
+  font-family: "communist";
+  src: local("communist"), url(./communist.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+*,
+input {
+  font-family: "communist" !important;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-image: linear-gradient(
+      to bottom,
+      hsla(0, 0%, 0%, 0.9),
+      hsla(0, 0%, 0%, 0.9)
+    ),
+    url("https://cdn.pixabay.com/photo/2012/04/14/16/42/che-34554_1280.png");
+  background-repeat: repeat;
+  background-size: 10%;
+  background-position: center;
+}
+
+.authButton {
+  margin: 30px 0px;
+}
+
+.home {
+  height: 95vh;
+  width: 95vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    border: 1px solid #111;
+    height: 90vh;
+    border-radius: 20px;
+    display: flex;
+    overflow: hidden;
+
+    .sidebar {
+      flex: 1;
+      background-color: #222;
+      color: #eee;
+
+      .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #444;
+        padding: 10px;
+        height: 100px;
+
+        .logo-img {
+          height: 40px;
+          width: 40px;
+          margin-right: 8px;
+        }
+        img {
+          height: 24px;
+          width: 24px;
+          background-color: white;
+          border-radius: 50%;
+          object-fit: cover;
+          margin: 0;
+        }
+
+        .user {
+          display: flex;
+          gap: 10px;
+
+          button {
+            padding: 4px;
+            border-radius: 2px;
+            background: red;
+            border: none;
+            cursor: pointer;
+          }
+        }
+        .logo {
+          font-size: x-large;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          @include tablet{
+            // display: none;
+          }
+        }
+      }
+      .search {
+        border-bottom: 1px solid gray;
+      }
+      .userChat {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+      .searchForm {
+        padding: 10px;
+        input {
+          background-color: transparent !important;
+          border: none;
+          color: white;
+
+          &::placeholder {
+            color: lightgray;
+          }
+        }
+      }
+    }
+    .chat {
+      flex: 2;
+    }
+    .userChatInfo {
+      span {
+        font-size: 18px;
+        font-weight: 500;
+      }
+      p {
+        font-size: 14px;
+        color: lightgrey;
+      }
+    }
+    .chatInfo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      align-content: center;
+      padding: 10px;
+      height: 60px;
+      background-color: #eee;
+
+      p {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    .messages {
+      padding: 10px;
+      height: calc(100% - 140px);
+      background: linear-gradient(to bottom, #00000099, #00000099),
+        url("https://cdn.pixabay.com/photo/2013/07/12/18/21/lenin-153346_1280.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      overflow: scroll;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+
+      .message {
+        background: transparent;
+        display: flex;
+        gap: 20px;
+
+        .messageInfo {
+          display: flex;
+          flex-direction: column;
+          color: gray;
+          margin-bottom: 20px;
+          font-weight: 300;
+
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+        }
+        .messageContent {
+          max-width: 80%;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          p {
+            padding: 3px 10px;
+            background: #fff;
+            border-radius: 0 8px 8px 8px;
+            width: max-content;
+          }
+
+          img {
+            width: 40%;
+          }
+        }
+
+        &.owner {
+          flex-direction: row-reverse;
+          .messageContent {
+            align-items: flex-end;
+            p {
+              background-color: #fff;
+              border-radius: 10px 0 10px 10px;
+            }
+          }
+        }
+      }
+    }
+    .msgInput {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      background: white;
+      height: 80px;
+      input {
+        border: 0 !important;
+      }
+    }
+  }
+}
+
+.title, label{
+  color: white !important;
+  .label{
+    font-size: large !important;
+  }
+}
