@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import Search from "./Search";
 import Chats from "./Chats";
+import { NavLink, Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
@@ -9,6 +10,7 @@ const Sidebar = () => {
       <Navbar />
       <Search />
       <Chats />
+      <NavLink to="/chat">enter chatroom</NavLink>      
     </div>
   );
 };
